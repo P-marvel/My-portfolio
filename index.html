@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Homepage</title>
 
 	<script src="icon.js"></script>
 
@@ -60,6 +60,7 @@
 			margin: auto;
 			color: white;
 			font-weight: bold;
+			transition: 0.2s;
 		}
 		#welcome{
 			background-color: darkgrey;
@@ -101,6 +102,14 @@
 			background-color: black;
 			color: darkgrey;
 			transition: 0.5s;
+		}
+		#send:hover{
+			color: black;
+			background-color: white;
+			transition: 0.5s;
+		}
+		#send:active{
+			opacity: 0.3;
 		}
 		
 		
@@ -180,7 +189,7 @@ to develop the skills and knowledge needed to achieve them</p>
 
 <h3 id="contacthd">Contact</h3>
 
-<form>
+<form action="https://formspree.io/f/xanwqlek" method='post'>
 	<div id="name">
 		<label>Name:</label><br>
 		<input type="text" name="Name"><br>
@@ -188,19 +197,19 @@ to develop the skills and knowledge needed to achieve them</p>
 
 	<div>
 		<label>Email:</label><br>
-		<input type="email" name="Name"><br>
+		<input type="email" name="Email"><br>
 	</div>
 
 	<div>
 		<label>Message</label><br>
-		<textarea  id="message" ></textarea>
+		<textarea  id="message" name="message" ></textarea>
 	</div>
 	<br>
 	
 
+<button id="send" type="submit">Send</button>
 
 </form>
-<button id="send">Send</button>
 
 </div>
 <br><br>
@@ -222,7 +231,12 @@ to develop the skills and knowledge needed to achieve them</p>
 
 
 <script type="text/javascript">
-	
+	document.getElementById('send').addEventListener('click', function(){alert('Message sent!');});
+
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {anchor.addEventListener('click', function(e) {
+		e.preventDefault();
+		document.querySelector(this.getAttribute('href')).scrollIntoView({behaviour: 'smooth'});
+	});});
 </script>
 	
 </style>
